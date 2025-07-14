@@ -1,0 +1,120 @@
+<div class="programme-container">
+  <section class="hero-section">
+    <div class="container">
+      <h1>Programme 2025</h1>
+      <h2>Fêtes de la Saint-Barthélémy</h2>
+      <p>22 au 25 août 2025 - Cieutat</p>
+    </div>
+  </section>
+
+  <section class="affiche-section">
+    <div class="container">
+      <div class="affiche-card">
+        <img src="/assets/images/events/2025.png" alt="Affiche des fêtes de Cieutat 2025" class="affiche-image">
+        <div class="affiche-overlay">
+          <h3>Programme officiel 2025</h3>
+          <p>Tous les détails de nos 4 jours de fête</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programme-detail">
+    <div class="container">
+      <h2>Programme détaillé</h2>
+      
+      <div class="programme-grid">
+        <div *ngFor="let jour of programme" class="jour-card" [attr.data-jour]="jour.jour.toLowerCase()">
+          <div class="jour-header">
+            <h3>{{ jour.jour }}</h3>
+            <span class="date">{{ jour.date }}</span>
+          </div>
+          
+          <div class="events-list">
+            <div *ngFor="let event of jour.events" class="event-item">
+              <div class="event-time">
+                <mat-icon>schedule</mat-icon>
+                <span>{{ event.heure }}</span>
+              </div>
+              <div class="event-content">
+                <div class="event-header">
+                  <mat-icon class="event-icon">{{ event.icon }}</mat-icon>
+                  <h4>{{ event.titre }}</h4>
+                </div>
+                <p class="event-description">{{ event.description }}</p>
+                <div class="event-location">
+                  <mat-icon>location_on</mat-icon>
+                  <span>{{ event.lieu }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reservations-section">
+    <div class="container">
+      <mat-card class="reservation-card">
+        <mat-card-content>
+          <h3>Réservations</h3>
+          <p>Certains événements nécessitent une réservation. Réservez dès maintenant pour ne rien manquer !</p>
+          <div class="reservation-actions">
+            <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
+              <mat-icon>confirmation_number</mat-icon>
+              Réserver sur HelloAsso
+            </a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="infos-pratiques">
+    <div class="container">
+      <h2>Informations pratiques</h2>
+      <div class="infos-grid">
+        <mat-card class="info-card">
+          <mat-card-header>
+            <div mat-card-avatar class="info-avatar">
+              <mat-icon>phone</mat-icon>
+            </div>
+            <mat-card-title>Contact</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>06.87.31.42.11</p>
+            <p>07.86.81.07.70</p>
+          </mat-card-content>
+        </mat-card>
+        
+        <mat-card class="info-card">
+          <mat-card-header>
+            <div mat-card-avatar class="info-avatar">
+              <mat-icon>restaurant</mat-icon>
+            </div>
+            <mat-card-title>Tarifs repas</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Adulte : 14€</p>
+            <p>Enfant : 8€</p>
+            <p>Avec porc/champêtre + dessert</p>
+          </mat-card-content>
+        </mat-card>
+        
+        <mat-card class="info-card">
+          <mat-card-header>
+            <div mat-card-avatar class="info-avatar">
+              <mat-icon>event</mat-icon>
+            </div>
+            <mat-card-title>Réservation</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Jusqu'au 23/08</p>
+            <p>Places limitées</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+</div>
