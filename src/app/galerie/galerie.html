@@ -1,0 +1,48 @@
+<div class="galerie-container">
+  <section class="hero-section">
+    <div class="container">
+      <h1>Galerie</h1>
+      <p>Affiches des fêtes et concerts à travers les années</p>
+    </div>
+  </section>
+
+  <section class="galerie-content">
+    <div class="container">
+      <div class="images-grid">
+        <mat-card *ngFor="let image of displayedImages" class="image-card">
+          <div class="image-container">
+            <img [src]="image.src" [alt]="image.title" class="gallery-image" loading="lazy">
+            <div class="image-overlay">
+              <mat-icon>zoom_in</mat-icon>
+            </div>
+          </div>
+          <mat-card-content>
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+      <div class="load-more-section" *ngIf="hasMoreImages">
+        <button mat-raised-button color="primary" (click)="loadMoreImages()" class="load-more-button">
+          <mat-icon>expand_more</mat-icon>
+          Voir plus d'images
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+      <mat-card class="info-card">
+        <mat-card-content>
+          <h2>Archives des affiches</h2>
+          <p>
+            Cette galerie présente les affiches officielles des fêtes de la Saint-Barthélémy 
+            et des concerts polyphoniques de Cieutat à travers les années.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+</div>
