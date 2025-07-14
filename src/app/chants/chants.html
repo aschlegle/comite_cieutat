@@ -1,0 +1,74 @@
+<div class="chants-container">
+  <section class="hero-section">
+    <div class="container">
+      <h1>Chants et Livrets</h1>
+      <p>Découvrez les chants traditionnels bigourdans pour les fêtes de Cieutat</p>
+    </div>
+  </section>
+
+  <section class="chants-content">
+    <div class="container">
+      <div class="intro-text">
+        <h2>Les chants du vendredi soir</h2>
+        <p>
+          Les chants polyphoniques constituent l'un des moments les plus émouvants de nos festivités. 
+          Ils débutent dans l'église de Cieutat à 19h00, 
+          puis se poursuivent à la salle des fêtes dans une ambiance conviviale.
+        </p>
+      </div>
+
+      <div class="livrets-grid">
+        <mat-card *ngFor="let chant of chants" class="livret-card">
+          <mat-card-header>
+            <mat-icon mat-card-avatar>library_music</mat-icon>
+            <mat-card-title>{{ chant.titre }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ chant.description }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-raised-button color="primary" [href]="chant.livretUrl" target="_blank">
+              <mat-icon>download</mat-icon>
+              Télécharger le livret
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="info-section">
+        <mat-card class="info-card">
+          <mat-card-content>
+            <h3>Informations pratiques</h3>
+            <div class="info-details">
+              <div class="info-item">
+                <mat-icon>schedule</mat-icon>
+                <div>
+                  <strong>Horaires</strong>
+                  <p>19h00 - Église de Cieutat</p>
+                  <p>21h00 - Salle des fêtes</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <mat-icon>people</mat-icon>
+                <div>
+                  <strong>Participation</strong>
+                  <p>Tout le monde est invité à participer</p>
+                  <p>N'hésitez pas à apporter votre voix !</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <mat-icon>music_note</mat-icon>
+                <div>
+                  <strong>Répertoire</strong>
+                  <p>Chants traditionnels bigourdans</p>
+                  <p>Polyphonies populaires</p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+    </div>
+  </section>
+</div>
