@@ -1,0 +1,92 @@
+.header-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: var(--gradient-festif) !important;
+  overflow: hidden; /* Empêche le débordement du shimmer */
+  
+  // Effet de brillance
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start from outside left */
+    right: -100%; /* End outside right */
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    animation: shimmer 3s infinite;
+    pointer-events: none; /* N'interfère pas avec les clics */
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  overflow: hidden; /* Empêche le débordement */
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  .logo-comite {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 4px;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .blason {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+  }
+  
+  .title {
+    font-family: 'Passion One', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+  }
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 8px;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+  
+  a {
+    &.active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.mobile-menu-button {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
