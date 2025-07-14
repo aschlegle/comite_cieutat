@@ -1,0 +1,85 @@
+<div class="hero-section">
+  <div class="hero-content">
+    <h1>Fêtes de la Saint-Barthélémy</h1>
+    <h2>Cieutat</h2>
+    <p class="dates">22 - 25 août 2025</p>
+    
+    <div class="hero-main-content">
+      <div class="affiche-container">
+        <img src="/assets/images/events/2025.png" alt="Programme 2025" class="affiche-hero">
+        <div class="hero-details">
+          <h3>4 jours de festivités</h3>
+          <div class="hero-actions">
+            <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
+              <mat-icon>confirmation_number</mat-icon>
+              Réservations
+            </a>
+            <a mat-raised-button color="primary" routerLink="/programme">
+              <mat-icon>event</mat-icon>
+              Programme détaillé
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="highlights">
+  <div class="container">
+    <h2>Les temps forts</h2>
+    <div class="highlights-grid">
+      <mat-card class="highlight-card">
+        <img src="/assets/images/mascots/cute-owl.png" alt="Chouette" class="highlight-image">
+        <mat-card-content>
+          <h3>Chants polyphoniques</h3>
+          <p>Vendredi soir dans l'église, suivis de chants à la salle des fêtes</p>
+          <a mat-button color="primary" routerLink="/chants">
+            Voir les livrets
+          </a>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="highlight-card">
+        <img src="/assets/images/mascots/dindon-biere.png" alt="Dindon avec bière" class="highlight-image">
+        <mat-card-content>
+          <h3>Repas festifs</h3>
+          <p>Samedi soir avec LOS BAMBOLAYRES</p>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="highlight-card">
+        <img src="/assets/images/mascots/dindon-coureur.png" alt="Dindon qui court" class="highlight-image">
+        <mat-card-content>
+          <h3>L'aubade</h3>
+          <p>Les jeunes du village passent chanter dans les maisons le dimanche</p>
+        </mat-card-content>
+      </mat-card>
+      
+    </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="container">
+    <mat-card class="info-card">
+      <mat-card-content>
+        <h3>Informations pratiques</h3>
+        <div class="info-grid">
+          <div>
+            <mat-icon>location_on</mat-icon>
+            <span>Cieutat</span>
+          </div>
+          <div>
+            <mat-icon>calendar_today</mat-icon>
+            <span>22 au 25 août 2025</span>
+          </div>
+          <div>
+            <mat-icon>confirmation_number</mat-icon>
+            <a [href]="helloAssoUrl" target="_blank">Réservations sur HelloAsso</a>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
