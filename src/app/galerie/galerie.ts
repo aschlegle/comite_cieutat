@@ -33,11 +33,6 @@ export class GalerieComponent {
       description: 'Affiche des fêtes de la Saint-Barthélémy 2023'
     },
     {
-      src: '/assets/images/events/Concert 2023.png',
-      title: 'Concert 2023',
-      description: 'Affiche du concert polyphonique 2023'
-    },
-    {
       src: '/assets/images/events/Concert 2022.jpg',
       title: 'Concert 2022',
       description: 'Affiche du concert polyphonique 2022'
