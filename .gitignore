@@ -42,10 +42,11 @@ Visuels_interressants/
 
 # Fichiers trop volumineux pour GitHub (>50MB)
 public/assets/images/events/Concert\ 2023.png
-public/assets/images/monuments/eglise_decoupee.png
 public/assets/images/monuments/Eglise\ découpée\ stylisée.png
 src/assets/images/events/Concert\ 2023.png
 src/assets/images/monuments/Eglise\ découpée\ stylisée.png
+
+# Note: eglise_decoupee.png est maintenant optimisé et peut être commité
 
 # Assets publics (à committer pour le déploiement)
 # Garder les assets dans src/assets/ et public/assets/ pour le déploiement
