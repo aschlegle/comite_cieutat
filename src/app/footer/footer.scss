@@ -51,6 +51,43 @@
   }
 }
 
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+  
+  a {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: var(--festival-yellow);
+      transform: scale(1.1);
+      
+      mat-icon {
+        color: var(--festival-red);
+      }
+    }
+    
+    mat-icon {
+      color: white;
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
 .footer-bottom {
   border-top: 1px solid #34495e;
   margin-top: 30px;

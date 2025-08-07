@@ -155,8 +155,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow-x: hidden;
   width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -270,12 +270,258 @@
   }
 }
 
+.social-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  
+  h2 {
+    text-align: center;
+    font-family: 'Passion One', cursive;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .social-intro {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+}
+
+.reservations-section {
+  padding: 60px 0 120px 0;
+  background: #f8f9fa;
+}
+
+.reservations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.reservation-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+  
+  mat-card-header {
+    .mat-card-avatar,
+    .custom-avatar {
+      background: var(--festival-red) !important;
+      color: white !important;
+      width: 56px !important;
+      height: 56px !important;
+      min-width: 56px !important;
+      min-height: 56px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 50% !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      
+      mat-icon {
+        font-size: 28px !important;
+        width: 28px !important;
+        height: 28px !important;
+        line-height: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+    }
+    
+    .restaurant-avatar {
+      background: #ff5722 !important;
+    }
+    
+    mat-card-title {
+      font-family: 'Passion One', cursive;
+      font-size: 1.5rem;
+      color: var(--festival-red);
+    }
+    
+    mat-card-subtitle {
+      font-family: 'Fredoka One', cursive;
+      color: #666;
+    }
+  }
+  
+  mat-card-content {
+    font-family: 'Fredoka One', cursive;
+    
+    .meal-info {
+      font-size: 1.1rem;
+      color: var(--festival-blue);
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+    .price-info {
+      background: rgba(229, 57, 53, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      
+      p {
+        margin: 5px 0;
+        font-size: 1rem;
+        
+        &.menu {
+          font-style: italic;
+          color: #666;
+        }
+      }
+    }
+    
+    .contact-info {
+      h4 {
+        font-family: 'Passion One', cursive;
+        color: var(--festival-red);
+        margin-bottom: 15px;
+      }
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      
+      mat-icon {
+        color: var(--festival-blue);
+        background: rgba(25, 118, 210, 0.1);
+        border-radius: 50%;
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      
+      div {
+        p {
+          margin: 0;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+        
+        .contact-name {
+          font-size: 0.9rem;
+          color: #666;
+        }
+      }
+    }
+    
+    .merchandise-mascot {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      margin: 20px auto;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    }
+    
+    .helloasso-btn {
+      width: 100%;
+      margin-top: 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      padding: 15px;
+    }
+  }
+  
+  &.meals {
+    mat-card-header .mat-card-avatar {
+      background: #ff5722 !important;
+    }
+  }
+  
+  &.merchandise {
+    mat-card-header .mat-card-avatar {
+      background: var(--festival-blue);
+    }
+  }
+}
+
+.social-buttons-main {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  
+  a {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    mat-icon {
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+    }
+  }
+  
+  .facebook-btn {
+    background: linear-gradient(45deg, #1877F2, #4267B2);
+    color: white;
+    
+    &:hover {
+      background: linear-gradient(45deg, #4267B2, #1877F2);
+    }
+  }
+  
+  .instagram-btn {
+    background: linear-gradient(45deg, #E1306C, #C13584, #F56040, #FCAF45);
+    color: white;
+    
+    &:hover {
+      background: linear-gradient(45deg, #FCAF45, #F56040, #C13584, #E1306C);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    gap: 20px;
+    
+    a {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 60px 0;
   }
   
-  .programme-preview, .highlights, .info-section {
+  .programme-preview, .highlights, .info-section, .social-section {
     padding: 40px 0;
   }
   

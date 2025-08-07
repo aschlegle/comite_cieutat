@@ -410,22 +410,110 @@ $affiche-sky: #42a5f5;
 .reservation-card {
   max-width: 600px;
   margin: 0 auto;
-  text-align: center;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
-  h3 {
-    font-family: 'Passion One', cursive;
-    font-size: 2rem;
-    color: $affiche-red;
-    margin-bottom: 20px;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
   }
   
-  p {
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 30px;
+  &.compact {
+    mat-card-header {
+      .mat-card-avatar,
+      .custom-avatar {
+        background: #ff5722 !important;
+        color: white !important;
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        
+        mat-icon {
+          font-size: 24px !important;
+          width: 24px !important;
+          height: 24px !important;
+          line-height: 1 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+      }
+      
+      .restaurant-avatar {
+        background: #ff5722 !important;
+      }
+      
+      mat-card-title {
+        font-family: 'Passion One', cursive;
+        font-size: 1.4rem;
+        color: $affiche-red;
+      }
+      
+      mat-card-subtitle {
+        font-family: 'Fredoka One', cursive;
+        color: #666;
+        font-size: 0.95rem;
+      }
+    }
+    
+    mat-card-content {
+      padding-top: 10px;
+    }
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  mat-icon {
+    color: $affiche-blue;
+    background: rgba(25, 118, 210, 0.1);
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  div {
+    text-align: left;
+    
+    p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 0.95rem;
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    span {
+      font-size: 0.8rem;
+      color: #666;
+      font-family: 'Fredoka One', cursive;
+    }
   }
 }
 
@@ -440,78 +528,79 @@ $affiche-sky: #42a5f5;
   }
 }
 
-.infos-pratiques {
-  padding: 80px 0;
+.support-section {
+  padding: 60px 0 120px 0;
   background: #f8f9fa;
   
   h2 {
     font-family: 'Passion One', cursive;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
     color: $affiche-blue;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
 }
 
-.infos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+.support-card {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  &:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   }
 }
 
-.info-card {
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-  overflow: visible;
-  margin: 10px;
+.support-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  align-items: center;
   
-  &:hover {
-    transform: translateY(-5px);
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
   }
-  
-  mat-card-header {
-    padding: 20px 20px 16px 20px;
-    
-    .info-avatar {
-      background: $affiche-red;
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-right: 16px;
-      
-      mat-icon {
-        font-size: 28px;
-        width: 28px;
-        height: 28px;
-        color: white;
-      }
-    }
-  }
-  
-  mat-card-title {
+}
+
+.support-text {
+  h3 {
     font-family: 'Passion One', cursive;
-    font-size: 1.3rem;
-    color: $affiche-blue;
+    font-size: 1.8rem;
+    color: $affiche-red;
+    margin-bottom: 15px;
   }
   
-  mat-card-content {
+  p {
     font-family: 'Fredoka One', cursive;
-    padding: 0 20px 20px 20px;
-    
-    p {
-      margin: 5px 0;
-      color: #666;
-    }
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.support-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  
+  .support-mascot {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+  }
+  
+  a {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    padding: 15px 25px;
+    white-space: nowrap;
   }
 }
 

@@ -11,8 +11,8 @@
           <h3>4 jours de festivités</h3>
           <div class="hero-actions">
             <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
-              <mat-icon>confirmation_number</mat-icon>
-              Réservations
+              <mat-icon>shopping_cart</mat-icon>
+              La panoplie Cieutatoise
             </a>
             <a mat-raised-button color="primary" routerLink="/programme">
               <mat-icon>event</mat-icon>
@@ -75,11 +75,86 @@
             <span>22 au 25 août 2025</span>
           </div>
           <div>
-            <mat-icon>confirmation_number</mat-icon>
-            <a [href]="helloAssoUrl" target="_blank">Réservations sur HelloAsso</a>
+            <mat-icon>phone</mat-icon>
+            <span>Réservations repas avant le 20 août</span>
           </div>
         </div>
       </mat-card-content>
     </mat-card>
+  </div>
+</section>
+
+<section class="reservations-section">
+  <div class="container">
+    <div class="reservations-grid">
+      <mat-card class="reservation-card meals">
+        <mat-card-header>
+          <div mat-card-avatar class="custom-avatar restaurant-avatar">
+            <mat-icon>restaurant</mat-icon>
+          </div>
+          <mat-card-title>Réservation des repas</mat-card-title>
+          <mat-card-subtitle>Avant le 20 août 2025</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="meal-info">Samedi soir animé par LOS BAMBOLAYRES</p>
+          <div class="price-info">
+            <p><strong>Adulte :</strong> 14€</p>
+            <p><strong>Enfant :</strong> 8€</p>
+            <p class="menu">Porc/champêtre + dessert</p>
+          </div>
+          <div class="contact-info">
+            <h4>Contacts réservation :</h4>
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <div>
+                <p>07.86.81.07.70</p>
+                <span class="contact-name">Damien PAYSSAN</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <div>
+                <p>06.87.31.42.11</p>
+                <span class="contact-name">Laurianne BEGUE</span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="reservation-card merchandise">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>checkroom</mat-icon>
+          <mat-card-title>La panoplie Cieutatoise</mat-card-title>
+          <mat-card-subtitle>T-shirts et goodies</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Arborez fièrement les couleurs de Cieutat avec nos t-shirts exclusifs et autres articles souvenirs !</p>
+          <img src="/assets/images/mascots/dindon-biere.png" alt="Mascotte" class="merchandise-mascot">
+          <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank" class="helloasso-btn">
+            <mat-icon>shopping_cart</mat-icon>
+            Commander sur HelloAsso
+          </a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<section class="social-section">
+  <div class="container">
+    <h2>Suivez-nous sur les réseaux sociaux</h2>
+    <p class="social-intro">Restez connectés avec le comité et découvrez les coulisses de nos fêtes</p>
+    
+    <div class="social-buttons-main">
+      <a mat-raised-button class="facebook-btn" href="https://www.facebook.com/profile.php?id=61578340864922" target="_blank">
+        <mat-icon>facebook</mat-icon>
+        Suivre sur Facebook
+      </a>
+      <a mat-raised-button class="instagram-btn" href="https://www.instagram.com/comite_ciutat/" target="_blank">
+        <mat-icon>camera_alt</mat-icon>
+        &#64;comite_ciutat
+      </a>
+    </div>
   </div>
 </section>

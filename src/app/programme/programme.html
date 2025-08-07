@@ -62,65 +62,57 @@
 
   <section class="reservations-section">
     <div class="container">
-      <mat-card class="reservation-card">
+      <mat-card class="reservation-card compact">
+        <mat-card-header>
+          <div mat-card-avatar class="custom-avatar restaurant-avatar">
+            <mat-icon>restaurant</mat-icon>
+          </div>
+          <mat-card-title>Réservation des repas</mat-card-title>
+          <mat-card-subtitle>Samedi soir • Avant le 20 août • 14€/8€</mat-card-subtitle>
+        </mat-card-header>
         <mat-card-content>
-          <h3>Réservations</h3>
-          <p>Certains événements nécessitent une réservation. Réservez dès maintenant pour ne rien manquer !</p>
-          <div class="reservation-actions">
-            <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
-              <mat-icon>confirmation_number</mat-icon>
-              Réserver sur HelloAsso
-            </a>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <div>
+                <p>07.86.81.07.70</p>
+                <span>Damien PAYSSAN</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <div>
+                <p>06.87.31.42.11</p>
+                <span>Laurianne BEGUE</span>
+              </div>
+            </div>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
   </section>
 
-  <section class="infos-pratiques">
+  <section class="support-section">
     <div class="container">
-      <h2>Informations pratiques</h2>
-      <div class="infos-grid">
-        <mat-card class="info-card">
-          <mat-card-header>
-            <div mat-card-avatar class="info-avatar">
-              <mat-icon>phone</mat-icon>
+      <h2>Soutenez le comité</h2>
+      <mat-card class="support-card">
+        <mat-card-content>
+          <div class="support-content">
+            <div class="support-text">
+              <h3>T-shirts Cieutatois</h3>
+              <p>Arborez fièrement les couleurs de Cieutat et soutenez notre comité en commandant nos t-shirts exclusifs !</p>
             </div>
-            <mat-card-title>Contact</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>06.87.31.42.11</p>
-            <p>07.86.81.07.70</p>
-          </mat-card-content>
-        </mat-card>
-        
-        <mat-card class="info-card">
-          <mat-card-header>
-            <div mat-card-avatar class="info-avatar">
-              <mat-icon>restaurant</mat-icon>
+            <div class="support-action">
+              <img src="/assets/images/mascots/dindon-biere.png" alt="Mascotte" class="support-mascot">
+              <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
+                <mat-icon>shopping_cart</mat-icon>
+                Boutique HelloAsso
+              </a>
             </div>
-            <mat-card-title>Tarifs repas</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Adulte : 14€</p>
-            <p>Enfant : 8€</p>
-            <p>Avec porc/champêtre + dessert</p>
-          </mat-card-content>
-        </mat-card>
-        
-        <mat-card class="info-card">
-          <mat-card-header>
-            <div mat-card-avatar class="info-avatar">
-              <mat-icon>event</mat-icon>
-            </div>
-            <mat-card-title>Réservation</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Jusqu'au 23/08</p>
-            <p>Places limitées</p>
-          </mat-card-content>
-        </mat-card>
-      </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </section>
+
 </div>

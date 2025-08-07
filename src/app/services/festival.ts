@@ -16,7 +16,7 @@ export class FestivalService {
           jour: 'vendredi',
           heure: '19h45',
           titre: 'Concert de chants traditionnels',
-          description: 'Concert de chants traditionnels à l\'église de Cieutat',
+          description: 'Concert de chants traditionnels',
           lieu: 'Église de Cieutat',
           icon: 'church'
         },

@@ -21,7 +21,7 @@ import { JourProgramme } from '../models/event.model';
 })
 export class ProgrammeComponent implements OnInit {
   programme: JourProgramme[] = [];
-  helloAssoUrl = 'https://www.helloasso.com/associations/comite-des-jeunes-de-cieutat';
+  helloAssoUrl = 'https://www.helloasso.com/associations/comite-des-jeunes-de-cieutat/boutiques/tee-shirt-cieutatois';
 
   constructor(private festivalService: FestivalService) {}
 
