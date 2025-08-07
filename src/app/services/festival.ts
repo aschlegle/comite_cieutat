@@ -49,7 +49,7 @@ export class FestivalService {
           jour: 'samedi',
           heure: '19h00',
           titre: 'Apéritif et repas animé',
-          description: 'Animé par LOS BAMBOLAYRES - Réservation conseillée',
+          description: 'Animé par LOS BAMBOLAYRES - Réservation Obligatoire',
           lieu: 'Salle des fêtes',
           icon: 'restaurant'
         },
