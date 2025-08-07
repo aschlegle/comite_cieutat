@@ -46,6 +46,12 @@
                   <mat-icon>location_on</mat-icon>
                   <span>{{ event.lieu }}</span>
                 </div>
+                <!-- Affiche pour les chants du vendredi -->
+                <div *ngIf="event.id === '1'" class="event-poster">
+                  <img src="/assets/images/events/chants_cieutat_2025_optimized.jpg" 
+                       alt="Affiche des chants traditionnels 2025" 
+                       class="chants-poster">
+                </div>
               </div>
             </div>
           </div>

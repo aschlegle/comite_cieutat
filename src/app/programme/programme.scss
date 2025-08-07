@@ -515,6 +515,25 @@ $affiche-sky: #42a5f5;
   }
 }
 
+.event-poster {
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+  .chants-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    @media (max-width: 1200px) {
+      max-width: 100%;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 60px 0;

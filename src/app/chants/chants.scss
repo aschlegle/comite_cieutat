@@ -103,6 +103,30 @@
   }
 }
 
+.affiche-chants {
+  margin: 40px auto 60px;
+  text-align: center;
+  
+  .affiche-chants-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    }
+    
+    @media (max-width: 768px) {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
 .livrets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
