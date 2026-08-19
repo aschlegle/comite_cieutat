@@ -17,10 +17,12 @@
     <div class="evenements">
       <article *ngFor="let event of jour.events" class="evenement">
         <p class="heure">{{ event.heure }}</p>
-        <h3>{{ event.titre }}</h3>
-        <p *ngIf="event.artistes?.length" class="vedette">{{ event.artistes?.join(' · ') }}</p>
-        <p *ngIf="event.description" class="detail">{{ event.description }}</p>
-        <p *ngIf="event.lieu" class="lieu">{{ event.lieu }}</p>
+        <div class="corps">
+          <h3>{{ event.titre }}</h3>
+          <p *ngIf="event.artistes?.length" class="vedette">{{ event.artistes?.join(' · ') }}</p>
+          <p *ngIf="event.description" class="detail">{{ event.description }}</p>
+          <p *ngIf="event.lieu" class="lieu">{{ event.lieu }}</p>
+        </div>
       </article>
     </div>
 

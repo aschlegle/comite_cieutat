@@ -28,37 +28,61 @@
 }
 
 // --- Journée ---------------------------------------------------------------
+// Liste verticale plutôt que grille : le nombre d'événements varie d'un jour
+// à l'autre (2 à 5) et leurs textes sont de longueurs très inégales, si bien
+// qu'une grille laissait toujours une colonne orpheline et des blocs
+// décalés. En liste, toutes les heures s'alignent.
 .evenements {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1.4rem 1.8rem;
-  margin-top: 1.6rem;
-  text-align: center;
+  margin-top: 1.4rem;
 }
 
 .evenement {
-  h3 {
-    margin: 0.15rem 0 0.3rem;
+  display: grid;
+  grid-template-columns: 5.9rem minmax(0, 1fr);
+  gap: 0 1.2rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(26, 42, 114, 0.13);
+  text-align: left;
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0;
   }
 
-  .heure {
-    font-size: 1.6rem;
-    margin: 0;
+  h3 {
+    margin: 0 0 0.15rem;
   }
 
   p {
-    margin: 0 0 0.2rem;
+    margin: 0 0 0.12rem;
   }
+}
+
+.heure {
+  font-size: 1.2rem;
+  text-align: right;
+  padding-top: 0.05rem;
 }
 
 .detail,
 .lieu {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   opacity: 0.75;
 }
 
 .lieu {
   font-style: italic;
+}
+
+@media (max-width: 560px) {
+  .evenement {
+    grid-template-columns: 4.9rem minmax(0, 1fr);
+    gap: 0 0.8rem;
+  }
+
+  .heure {
+    font-size: 1.05rem;
+  }
 }
 
 .affiche-jour {
