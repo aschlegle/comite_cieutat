@@ -18,7 +18,7 @@ export class ProgrammeComponent implements OnInit {
 
   /** Deux décors par journée, dans l'ordre du programme. */
   readonly decors = [
-    ['/assets/decor/verres.svg', '/assets/decor/boule-disco.svg'],
+    ['/assets/decor/verres.png', '/assets/decor/boule-disco.svg'],
     ['/assets/decor/ballons.svg', '/assets/decor/boule-disco.svg'],
     ['/assets/decor/etoile-mer.svg', '/assets/decor/etincelles.svg'],
     ['/assets/decor/chapeaux.svg', '/assets/decor/coquillage.svg']

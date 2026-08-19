@@ -179,9 +179,15 @@ p {
   position: absolute;
   width: clamp(48px, 9vw, 92px);
   height: auto;
-  opacity: 0.6;
+  opacity: 0.7;
   pointer-events: none;
   user-select: none;
+}
+
+// La guirlande est un motif large et fin : à largeur égale des autres, elle
+// paraîtrait minuscule.
+.decor[src$="fanions.png"] {
+  width: clamp(86px, 15vw, 160px);
 }
 
 .decor-hg { top: 0.7rem; left: 0.7rem; }
@@ -191,10 +197,16 @@ p {
 
 // Sur les très petits écrans, le texte occupe toute la largeur : on réduit
 // les décors pour qu'ils n'entrent jamais en collision avec lui.
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .decor {
-    width: 40px;
-    opacity: 0.5;
+    width: 42px;
+    opacity: 0.55;
+  }
+
+  // Sélecteur de même spécificité que la règle générale de la guirlande :
+  // sans lui, elle resterait large et viendrait mordre sur les titres.
+  .decor[src$="fanions.png"] {
+    width: 64px;
   }
 }
 
