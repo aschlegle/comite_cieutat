@@ -1,531 +1,243 @@
-.hero-section {
-  background: var(--gradient-affiche);
-  color: white;
-  padding: 80px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 100vw;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-  }
-  
-  // Image de dindon en arrière-plan
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 650px;
-    height: 650px;
-    background: url('/assets/images/mascots/tete-dindon.png') no-repeat center;
-    background-size: contain;
-    opacity: 0.15;
-    z-index: 0;
-    
-    @media (max-width: 1200px) {
-      width: 500px;
-      height: 500px;
-    }
-    
-    @media (max-width: 768px) {
-      width: 350px;
-      height: 350px;
-      opacity: 0.1;
-    }
-  }
+// Accueil — une pile d'étiquettes crème sur les rayures, à la manière du
+// carrousel Instagram du comité. Aucun fond ni cadre supplémentaire.
+
+:host {
+  display: block;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-  
+.pile {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.2rem, 3.5vw, 2rem);
+}
+
+.centre {
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+// --- Ouverture -------------------------------------------------------------
+.ouverture {
+  text-align: center;
+
   h1 {
-    font-family: 'Passion One', cursive;
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-    font-weight: 900;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-    letter-spacing: 2px;
-    
-    @media (max-width: 768px) {
-      font-size: 2.5rem;
-    }
-  }
-  
-  h2 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    
-    @media (max-width: 768px) {
-      font-size: 1.4rem;
-    }
-  }
-  
-  .dates {
-    font-family: 'Passion One', cursive;
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-    font-weight: 700;
-    background: rgba(255,255,255,0.2);
-    padding: 10px 20px;
-    border-radius: 25px;
-    display: inline-block;
-    backdrop-filter: blur(10px);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: clamp(2.6rem, 12vw, 4.6rem);
+    margin: 0;
   }
 }
 
-.hero-main-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.affiche-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
-
-.affiche-hero {
-  width: 100%;
+.logo {
+  width: clamp(120px, 26vw, 175px);
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.05);
-  }
+  margin-bottom: 1rem;
 }
 
-.hero-details {
+.dates {
+  font-size: clamp(1.05rem, 3.4vw, 1.4rem);
+  margin: 0.3rem 0 0;
+}
+
+// --- Textes ----------------------------------------------------------------
+.salutation,
+.signature {
+  font-style: italic;
+  color: var(--navy);
+}
+
+.signature {
+  font-weight: 700;
+  font-style: normal;
+  margin-top: 1.3rem;
+  margin-bottom: 0;
+}
+
+.chapeau {
+  margin-bottom: 1.4rem;
+}
+
+.mention {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin: 1rem 0 0;
+}
+
+.limite {
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--red);
+}
+
+// --- Aperçu des jours ------------------------------------------------------
+.jours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.9rem;
   text-align: center;
-  
-  @media (max-width: 768px) {
-    order: -1;
-  }
-  
+}
+
+.jour {
   h3 {
-    font-family: 'Passion One', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    margin: 0;
+  }
+
+  .ligne:first-of-type {
+    border-top: 0;
   }
 }
 
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-  
-  a {
-    min-width: 180px;
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.1rem;
-    padding: 15px 25px;
+.jour-date {
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.7;
+  margin: 0 0 0.7rem;
+}
+
+.ligne {
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(162, 186, 224, 0.5);
+  line-height: 1.4;
+
+  p {
+    margin: 0;
+  }
+
+  .heure {
+    font-size: 1.05rem;
   }
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 100%;
-  box-sizing: border-box;
+.intitule {
+  font-size: 0.95rem;
 }
 
-
-.highlights {
-  padding: 60px 0;
-  
-  h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
-  }
+.jour .vedette {
+  font-size: 0.9rem;
 }
 
-.highlights-grid {
+// --- Repas -----------------------------------------------------------------
+.formules {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  width: 100%;
-  max-width: 100%;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+}
+
+.formule-tete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+
+  h3 {
+    margin: 0;
   }
 }
 
-.highlight-card {
+.precision {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.7;
+  margin: 0 0 0.5rem;
+}
+
+.plat {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.prix {
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  background: var(--sky);
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  white-space: nowrap;
+}
+
+.reservation {
+  margin-top: 1.5rem;
   text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  border-radius: 15px;
-  
-  &:hover {
-    transform: translateY(-5px);
-  }
-  
-  &:nth-child(1) {
-    background: linear-gradient(135deg, var(--festival-red), var(--festival-orange));
-    color: white;
-  }
-  
-  &:nth-child(2) {
-    background: linear-gradient(135deg, var(--festival-yellow), var(--festival-sky));
-    color: #333;
-  }
-  
-  &:nth-child(3) {
-    background: linear-gradient(135deg, var(--festival-blue), var(--festival-sky));
-    color: white;
-  }
 }
 
-.highlight-icon {
-  font-size: 3rem;
-  width: 3rem;
-  height: 3rem;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 16px;
-  
-  .highlight-card:nth-child(2) & {
-    color: rgba(0,0,0,0.7);
-  }
-}
-
-.highlight-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 16px;
-  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-}
-
-.info-section {
-  padding: 60px 0;
-  background-color: #f8f9fa;
-}
-
-.info-card {
-  max-width: 600px;
-  margin: 0 auto;
-  
-  h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-}
-
-.info-grid {
-  display: grid;
-  gap: 16px;
-  
-  div {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    
-    mat-icon {
-      color: var(--festival-red);
-    }
-    
-    a {
-      color: #1976d2;
-      text-decoration: none;
-      
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.social-section {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
-  
-  h2 {
-    text-align: center;
-    font-family: 'Passion One', cursive;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .social-intro {
-    text-align: center;
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
-  }
-}
-
-.reservations-section {
-  padding: 60px 0 120px 0;
-  background: #f8f9fa;
-}
-
-.reservations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
-
-.reservation-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-  }
-  
-  mat-card-header {
-    .mat-card-avatar,
-    .custom-avatar {
-      background: var(--festival-red) !important;
-      color: white !important;
-      width: 56px !important;
-      height: 56px !important;
-      min-width: 56px !important;
-      min-height: 56px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      border-radius: 50% !important;
-      overflow: visible !important;
-      margin: 0 !important;
-      
-      mat-icon {
-        font-size: 28px !important;
-        width: 28px !important;
-        height: 28px !important;
-        line-height: 1 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-    }
-    
-    .restaurant-avatar {
-      background: #ff5722 !important;
-    }
-    
-    mat-card-title {
-      font-family: 'Passion One', cursive;
-      font-size: 1.5rem;
-      color: var(--festival-red);
-    }
-    
-    mat-card-subtitle {
-      font-family: 'Fredoka One', cursive;
-      color: #666;
-    }
-  }
-  
-  mat-card-content {
-    font-family: 'Fredoka One', cursive;
-    
-    .meal-info {
-      font-size: 1.1rem;
-      color: var(--festival-blue);
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    
-    .price-info {
-      background: rgba(229, 57, 53, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      
-      p {
-        margin: 5px 0;
-        font-size: 1rem;
-        
-        &.menu {
-          font-style: italic;
-          color: #666;
-        }
-      }
-    }
-    
-    .contact-info {
-      h4 {
-        font-family: 'Passion One', cursive;
-        color: var(--festival-red);
-        margin-bottom: 15px;
-      }
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-      
-      mat-icon {
-        color: var(--festival-blue);
-        background: rgba(25, 118, 210, 0.1);
-        border-radius: 50%;
-        padding: 8px;
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      
-      div {
-        p {
-          margin: 0;
-          font-weight: bold;
-          font-size: 1rem;
-        }
-        
-        .contact-name {
-          font-size: 0.9rem;
-          color: #666;
-        }
-      }
-    }
-    
-    .merchandise-mascot {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      display: block;
-      margin: 20px auto;
-      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-    }
-    
-    .helloasso-btn {
-      width: 100%;
-      margin-top: 20px;
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.1rem;
-      padding: 15px;
-    }
-  }
-  
-  &.meals {
-    mat-card-header .mat-card-avatar {
-      background: #ff5722 !important;
-    }
-  }
-  
-  &.merchandise {
-    mat-card-header .mat-card-avatar {
-      background: var(--festival-blue);
-    }
-  }
-}
-
-.social-buttons-main {
+.contacts {
   display: flex;
-  justify-content: center;
-  gap: 30px;
   flex-wrap: wrap;
-  margin-top: 40px;
-  
-  a {
-    font-family: 'Fredoka One', cursive;
-    font-size: 1.2rem;
-    padding: 20px 40px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    
-    &:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    
-    mat-icon {
-      font-size: 28px;
-      width: 28px;
-      height: 28px;
-    }
-  }
-  
-  .facebook-btn {
-    background: linear-gradient(45deg, #1877F2, #4267B2);
-    color: white;
-    
-    &:hover {
-      background: linear-gradient(45deg, #4267B2, #1877F2);
-    }
-  }
-  
-  .instagram-btn {
-    background: linear-gradient(45deg, #E1306C, #C13584, #F56040, #FCAF45);
-    color: white;
-    
-    &:hover {
-      background: linear-gradient(45deg, #FCAF45, #F56040, #C13584, #E1306C);
-    }
-  }
-  
-  @media (max-width: 600px) {
-    gap: 20px;
-    
-    a {
-      width: 100%;
-      max-width: 280px;
-      justify-content: center;
-    }
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.contact {
+  display: block;
+  text-decoration: none;
+  color: var(--navy);
+  background: #fff;
+  border-radius: var(--rayon);
+  padding: 0.6rem 1.3rem;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--sky);
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 60px 0;
-  }
-  
-  .programme-preview, .highlights, .info-section, .social-section {
-    padding: 40px 0;
-  }
-  
-  .events-grid, .highlights-grid {
+.numero {
+  display: block;
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.nom {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+// --- T-shirt ---------------------------------------------------------------
+.tshirt-grille {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.2rem, 4vw, 2.5rem);
+  align-items: center;
+
+  @media (max-width: 760px) {
     grid-template-columns: 1fr;
+    text-align: center;
   }
+}
+
+.tshirt-visuel {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+
+.prix-ligne {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 0.8rem;
+
+  @media (max-width: 760px) {
+    justify-content: center;
+  }
+}
+
+.tshirt .mat-mdc-raised-button {
+  margin-top: 0.4rem;
 }

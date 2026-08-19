@@ -2,38 +2,46 @@
   <div class="footer-content">
     <div class="footer-section">
       <h4>Comité des Fêtes de Cieutat</h4>
-      <p>Fêtes de la Saint-Barthélémy</p>
+      <p>Fête de la Saint-Barthélémy</p>
+      <p>{{ dates }}</p>
     </div>
-    
+
     <div class="footer-section">
-      <h4>Contact</h4>
-      <p>Pour plus d'informations sur les festivités</p>
-      <a href="https://www.helloasso.com/associations/comite-des-jeunes-de-cieutat" target="_blank">
-        Réservations HelloAsso
-      </a>
+      <h4>Réservation du repas</h4>
+      <p>Samedi soir, jusqu'au 25/08</p>
+      <p><a href="tel:+33786810770">07.86.81.07.70</a> — Damien Payssan</p>
+      <p><a href="tel:+33687314211">06.87.31.42.11</a> — Lauriane Bègue</p>
     </div>
-    
+
+    <div class="footer-section">
+      <h4>Boutique en ligne</h4>
+      <p>Le t-shirt cieutatois {{ edition }}</p>
+      <a [href]="boutiqueUrl" target="_blank" rel="noopener">Commander sur HelloAsso</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Nos partenaires</h4>
+      <p>Ils soutiennent la fête</p>
+      <a routerLink="/partenaires">Voir les partenaires</a>
+    </div>
+
     <div class="footer-section">
       <h4>Suivez-nous</h4>
       <p>Restez connectés avec le comité</p>
       <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61578340864922" target="_blank" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61578340864922"
+           target="_blank" rel="noopener" aria-label="Facebook">
           <mat-icon>facebook</mat-icon>
         </a>
-        <a href="https://www.instagram.com/comite_ciutat/" target="_blank" aria-label="Instagram">
-          <mat-icon>camera_alt</mat-icon>
+        <a href="https://www.instagram.com/comite_ciutat/"
+           target="_blank" rel="noopener" aria-label="Instagram">
+          <mat-icon>photo_camera</mat-icon>
         </a>
       </div>
     </div>
-    
-    <div class="footer-section">
-      <h4>Édition {{ currentYear }}</h4>
-      <p>Tradition et convivialité</p>
-      <p>depuis des générations</p>
-    </div>
   </div>
-  
+
   <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} Comité des Fêtes de Cieutat. Tous droits réservés.</p>
+    <p>&copy; {{ currentYear }} Comité des Fêtes de Cieutat</p>
   </div>
 </footer>

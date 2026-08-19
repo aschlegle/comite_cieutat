@@ -1,160 +1,128 @@
-<div class="hero-section">
-  <div class="hero-content">
-    <h1>Fêtes de la Saint-Barthélémy</h1>
-    <h2>Cieutat</h2>
-    <p class="dates">22 - 25 août 2025</p>
-    
-    <div class="hero-main-content">
-      <div class="affiche-container">
-        <img src="/assets/images/events/2025.png" alt="Programme 2025" class="affiche-hero">
-        <div class="hero-details">
-          <h3>4 jours de festivités</h3>
-          <div class="hero-actions">
-            <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
-              <mat-icon>shopping_cart</mat-icon>
-              La panoplie Cieutatoise
-            </a>
-            <a mat-raised-button color="primary" routerLink="/programme">
-              <mat-icon>event</mat-icon>
-              Programme détaillé
-            </a>
-          </div>
+<div class="container pile">
+
+  <!-- Ouverture -->
+  <section class="etiquette ouverture">
+    <img class="decor decor-hg" src="/assets/decor/chapeaux.svg" alt="" aria-hidden="true">
+    <img class="decor decor-bd" src="/assets/decor/etincelles.svg" alt="" aria-hidden="true">
+    <img src="/assets/images/logo/logo-fete-2026.png"
+         alt="Logo de la Fête de Cieutat 2026"
+         class="logo" width="377" height="579">
+    <p class="surtitre">Fête de la Saint-Barthélémy</p>
+    <h1>Cieutat</h1>
+    <p class="dates">{{ dates }}</p>
+    <div class="actions">
+      <a mat-raised-button color="primary" routerLink="/programme">Le programme</a>
+      <a mat-raised-button color="accent" [href]="tshirt?.boutiqueUrl" target="_blank" rel="noopener">
+        Le t-shirt {{ edition }}
+      </a>
+    </div>
+  </section>
+
+  <!-- Mot du comité -->
+  <section class="etiquette">
+    <img class="decor decor-hd" src="/assets/decor/fanions.svg" alt="" aria-hidden="true">
+    <p class="surtitre">Fête de Cieutat {{ edition }}</p>
+    <h2>Le mot du comité</h2>
+    <p class="salutation">Chères Cieutatoises, chers Cieutatois,</p>
+    <p *ngFor="let paragraphe of motDuComite">{{ paragraphe }}</p>
+    <p class="signature">
+      Les membres du comité vous souhaitent une très belle fête de la Saint-Barthélémy
+      à toutes et à tous&nbsp;!
+    </p>
+  </section>
+
+  <!-- Aperçu des quatre jours -->
+  <section class="etiquette">
+    <img class="decor decor-hd" src="/assets/decor/boule-disco.svg" alt="" aria-hidden="true">
+    <p class="surtitre">28 &ndash; 31 août</p>
+    <h2>Le programme</h2>
+
+    <div class="jours">
+      <article *ngFor="let jour of programme" class="carte jour">
+        <h3>{{ jour.jour }}</h3>
+        <p class="jour-date">{{ jour.date }}</p>
+        <div *ngFor="let event of jour.events" class="ligne">
+          <p class="heure">{{ event.heure }}</p>
+          <p class="intitule">{{ event.titre }}</p>
+          <p *ngIf="event.artistes?.length" class="vedette">
+            {{ event.artistes?.join(' · ') }}
+          </p>
         </div>
+      </article>
+    </div>
+
+    <div class="centre">
+      <a mat-raised-button color="primary" routerLink="/programme">Programme détaillé</a>
+    </div>
+  </section>
+
+  <!-- Repas -->
+  <section class="etiquette" *ngIf="repas as r">
+    <img class="decor decor-bd" src="/assets/decor/verres.svg" alt="" aria-hidden="true">
+    <p class="surtitre">Samedi 29 août</p>
+    <h2>Le repas</h2>
+    <p class="chapeau">
+      {{ r.quand }}, animé par <span class="vedette">{{ r.anime }}</span>. {{ r.note }}.
+    </p>
+
+    <div class="formules">
+      <div *ngFor="let formule of r.formules" class="carte formule">
+        <div class="formule-tete">
+          <h3>{{ formule.nom }}</h3>
+          <span class="prix">{{ formule.prix }}</span>
+        </div>
+        <p *ngIf="formule.precision" class="precision">{{ formule.precision }}</p>
+        <p *ngFor="let plat of formule.plats" class="plat">{{ plat }}</p>
       </div>
     </div>
-  </div>
+
+    <div class="reservation">
+      <p class="limite">{{ r.dateLimite }}</p>
+      <div class="contacts">
+        <a *ngFor="let contact of r.contacts" class="contact" [href]="'tel:' + contact.tel">
+          <span class="numero">{{ contact.telephone }}</span>
+          <span class="nom">{{ contact.nom }}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- T-shirt -->
+  <section class="etiquette tshirt" *ngIf="tshirt as t">
+    <img class="decor decor-hd" src="/assets/decor/etoile-mer.svg" alt="" aria-hidden="true">
+    <div class="tshirt-grille">
+      <img [src]="t.visuelUrl" alt="T-shirt marinière de la Fête de Cieutat 2026" class="tshirt-visuel">
+      <div>
+        <p class="surtitre">Boutique en ligne</p>
+        <h2>Le t-shirt cieutatois</h2>
+        <p class="chapeau">L'an dernier il vous a plu, cette année il revient sous un nouveau jour&nbsp;!</p>
+        <p class="prix-ligne">
+          <span class="prix">Adulte {{ t.prixAdulte }}</span>
+          <span class="prix">Enfant {{ t.prixEnfant }}</span>
+        </p>
+        <p class="limite">{{ t.dateLimite }}</p>
+        <a mat-raised-button color="accent" [href]="t.boutiqueUrl" target="_blank" rel="noopener">
+          Commander sur HelloAsso
+        </a>
+        <p class="mention">{{ t.retrait }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Réseaux -->
+  <section class="etiquette centre">
+    <img class="decor decor-hd" src="/assets/decor/coquillage.svg" alt="" aria-hidden="true">
+    <img class="decor decor-hg" src="/assets/decor/etincelles.svg" alt="" aria-hidden="true">
+    <p class="surtitre">Restez connectés</p>
+    <h2>Suivez le comité</h2>
+    <div class="actions">
+      <a mat-raised-button color="primary"
+         href="https://www.facebook.com/profile.php?id=61578340864922"
+         target="_blank" rel="noopener">Facebook</a>
+      <a mat-raised-button color="primary"
+         href="https://www.instagram.com/comite_ciutat/"
+         target="_blank" rel="noopener">&#64;comite_ciutat</a>
+    </div>
+  </section>
+
 </div>
-
-<section class="highlights">
-  <div class="container">
-    <h2>Les temps forts</h2>
-    <div class="highlights-grid">
-      <mat-card class="highlight-card">
-        <img src="/assets/images/mascots/cute-owl.png" alt="Chouette" class="highlight-image">
-        <mat-card-content>
-          <h3>Chants polyphoniques</h3>
-          <p>Vendredi soir dans l'église, suivis de chants à la salle des fêtes</p>
-          <a mat-button color="primary" routerLink="/chants">
-            Voir les livrets
-          </a>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="highlight-card">
-        <img src="/assets/images/mascots/dindon-biere.png" alt="Dindon avec bière" class="highlight-image">
-        <mat-card-content>
-          <h3>Repas festifs</h3>
-          <p>Samedi soir avec LOS BAMBOLAYRES</p>
-        </mat-card-content>
-      </mat-card>
-      
-      <mat-card class="highlight-card">
-        <img src="/assets/images/mascots/dindon-coureur.png" alt="Dindon qui court" class="highlight-image">
-        <mat-card-content>
-          <h3>L'aubade</h3>
-          <p>Les jeunes du village passent chanter dans les maisons le dimanche</p>
-        </mat-card-content>
-      </mat-card>
-      
-    </div>
-  </div>
-</section>
-
-<section class="info-section">
-  <div class="container">
-    <mat-card class="info-card">
-      <mat-card-content>
-        <h3>Informations pratiques</h3>
-        <div class="info-grid">
-          <div>
-            <mat-icon>location_on</mat-icon>
-            <span>Cieutat</span>
-          </div>
-          <div>
-            <mat-icon>calendar_today</mat-icon>
-            <span>22 au 25 août 2025</span>
-          </div>
-          <div>
-            <mat-icon>phone</mat-icon>
-            <span>Réservations repas avant le 20 août</span>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</section>
-
-<section class="reservations-section">
-  <div class="container">
-    <div class="reservations-grid">
-      <mat-card class="reservation-card meals">
-        <mat-card-header>
-          <div mat-card-avatar class="custom-avatar restaurant-avatar">
-            <mat-icon>restaurant</mat-icon>
-          </div>
-          <mat-card-title>Réservation des repas</mat-card-title>
-          <mat-card-subtitle>Avant le 20 août 2025</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p class="meal-info">Samedi soir animé par LOS BAMBOLAYRES</p>
-          <div class="price-info">
-            <p><strong>Adulte :</strong> 14€</p>
-            <p><strong>Enfant :</strong> 8€</p>
-            <p class="menu">Porc/champêtre + dessert</p>
-          </div>
-          <div class="contact-info">
-            <h4>Contacts réservation :</h4>
-            <div class="contact-item">
-              <mat-icon>phone</mat-icon>
-              <div>
-                <p>07.86.81.07.70</p>
-                <span class="contact-name">Damien PAYSSAN</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <mat-icon>phone</mat-icon>
-              <div>
-                <p>06.87.31.42.11</p>
-                <span class="contact-name">Laurianne BEGUE</span>
-              </div>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="reservation-card merchandise">
-        <mat-card-header>
-          <mat-icon mat-card-avatar>checkroom</mat-icon>
-          <mat-card-title>La panoplie Cieutatoise</mat-card-title>
-          <mat-card-subtitle>T-shirts et goodies</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Arborez fièrement les couleurs de Cieutat avec nos t-shirts exclusifs et autres articles souvenirs !</p>
-          <img src="/assets/images/mascots/dindon-biere.png" alt="Mascotte" class="merchandise-mascot">
-          <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank" class="helloasso-btn">
-            <mat-icon>shopping_cart</mat-icon>
-            Commander sur HelloAsso
-          </a>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-</section>
-
-<section class="social-section">
-  <div class="container">
-    <h2>Suivez-nous sur les réseaux sociaux</h2>
-    <p class="social-intro">Restez connectés avec le comité et découvrez les coulisses de nos fêtes</p>
-    
-    <div class="social-buttons-main">
-      <a mat-raised-button class="facebook-btn" href="https://www.facebook.com/profile.php?id=61578340864922" target="_blank">
-        <mat-icon>facebook</mat-icon>
-        Suivre sur Facebook
-      </a>
-      <a mat-raised-button class="instagram-btn" href="https://www.instagram.com/comite_ciutat/" target="_blank">
-        <mat-icon>camera_alt</mat-icon>
-        &#64;comite_ciutat
-      </a>
-    </div>
-  </div>
-</section>

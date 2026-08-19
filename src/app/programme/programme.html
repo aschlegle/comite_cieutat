@@ -1,118 +1,79 @@
-<div class="programme-container">
-  <section class="hero-section">
-    <div class="container">
-      <h1>Programme 2025</h1>
-      <h2>Fêtes de la Saint-Barthélémy</h2>
-      <p>22 au 25 août 2025 - Cieutat</p>
+<div class="container pile">
+
+  <section class="etiquette etiquette--titre centre">
+    <p class="surtitre">Fête de Cieutat {{ edition }}</p>
+    <h1>Le programme</h1>
+    <p class="dates">{{ dates }}</p>
+  </section>
+
+  <!-- Une étiquette par journée, comme les slides du carrousel du comité. -->
+  <section *ngFor="let jour of programme; let i = index" class="etiquette jour">
+    <img class="decor decor-hg" [src]="decors[i][0]" alt="" aria-hidden="true">
+    <img class="decor decor-bd" [src]="decors[i][1]" alt="" aria-hidden="true">
+    <div class="centre">
+      <p class="surtitre">Fête de Cieutat {{ edition }}</p>
+      <h2>{{ jour.libelle }}</h2>
+    </div>
+
+    <div class="evenements">
+      <article *ngFor="let event of jour.events" class="evenement">
+        <p class="heure">{{ event.heure }}</p>
+        <h3>{{ event.titre }}</h3>
+        <p *ngIf="event.artistes?.length" class="vedette">{{ event.artistes?.join(' · ') }}</p>
+        <p *ngIf="event.description" class="detail">{{ event.description }}</p>
+        <p *ngIf="event.lieu" class="lieu">{{ event.lieu }}</p>
+      </article>
+    </div>
+
+    <div *ngIf="jour.jour === 'Vendredi'" class="affiche-jour">
+      <img src="/assets/images/events/concert-chants-2026.jpg"
+           alt="Affiche du concert de chants traditionnels du 28 août 2026"
+           loading="lazy">
     </div>
   </section>
 
-  <section class="affiche-section">
-    <div class="container">
-      <div class="affiche-card">
-        <img src="/assets/images/events/2025.png" alt="Affiche des fêtes de Cieutat 2025" class="affiche-image">
-        <div class="affiche-overlay">
-          <h3>Programme officiel 2025</h3>
-          <p>Tous les détails de nos 4 jours de fête</p>
+  <!-- Repas -->
+  <section class="etiquette" *ngIf="repas as r">
+    <img class="decor decor-hd" src="/assets/decor/verres.svg" alt="" aria-hidden="true">
+    <div class="centre">
+      <p class="surtitre">Samedi 29 août</p>
+      <h2>Le menu</h2>
+    </div>
+    <p class="chapeau centre">
+      {{ r.quand }}, animé par <span class="vedette-inline">{{ r.anime }}</span>. {{ r.note }}.
+    </p>
+
+    <div class="formules">
+      <div *ngFor="let formule of r.formules" class="carte formule">
+        <div class="formule-tete">
+          <h3>{{ formule.nom }}</h3>
+          <span class="prix">{{ formule.prix }}</span>
         </div>
+        <p *ngIf="formule.precision" class="precision">{{ formule.precision }}</p>
+        <p *ngFor="let plat of formule.plats" class="plat">{{ plat }}</p>
+      </div>
+    </div>
+
+    <div class="reservation">
+      <p class="limite">{{ r.dateLimite }}</p>
+      <div class="contacts">
+        <a *ngFor="let contact of r.contacts" class="contact" [href]="'tel:' + contact.tel">
+          <span class="numero">{{ contact.telephone }}</span>
+          <span class="nom">{{ contact.nom }}</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="programme-detail">
-    <div class="container">
-      <h2>Programme détaillé</h2>
-      
-      <div class="programme-grid">
-        <div *ngFor="let jour of programme" class="jour-card" [attr.data-jour]="jour.jour.toLowerCase()">
-          <div class="jour-header">
-            <h3>{{ jour.jour }}</h3>
-            <span class="date">{{ jour.date }}</span>
-          </div>
-          
-          <div class="events-list">
-            <div *ngFor="let event of jour.events" class="event-item">
-              <div class="event-time">
-                <mat-icon>schedule</mat-icon>
-                <span>{{ event.heure }}</span>
-              </div>
-              <div class="event-content">
-                <div class="event-header">
-                  <mat-icon class="event-icon">{{ event.icon }}</mat-icon>
-                  <h4>{{ event.titre }}</h4>
-                </div>
-                <p class="event-description">{{ event.description }}</p>
-                <div class="event-location">
-                  <mat-icon>location_on</mat-icon>
-                  <span>{{ event.lieu }}</span>
-                </div>
-                <!-- Affiche pour les chants du vendredi -->
-                <div *ngIf="event.id === '1'" class="event-poster">
-                  <img src="/assets/images/events/chants_cieutat_2025_optimized.jpg" 
-                       alt="Affiche des chants traditionnels 2025" 
-                       class="chants-poster">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reservations-section">
-    <div class="container">
-      <mat-card class="reservation-card compact">
-        <mat-card-header>
-          <div mat-card-avatar class="custom-avatar restaurant-avatar">
-            <mat-icon>restaurant</mat-icon>
-          </div>
-          <mat-card-title>Réservation des repas</mat-card-title>
-          <mat-card-subtitle>Samedi soir • Avant le 20 août • 14€/8€</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="contact-grid">
-            <div class="contact-item">
-              <mat-icon>phone</mat-icon>
-              <div>
-                <p>07.86.81.07.70</p>
-                <span>Damien PAYSSAN</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <mat-icon>phone</mat-icon>
-              <div>
-                <p>06.87.31.42.11</p>
-                <span>Laurianne BEGUE</span>
-              </div>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </section>
-
-  <section class="support-section">
-    <div class="container">
-      <h2>Soutenez le comité</h2>
-      <mat-card class="support-card">
-        <mat-card-content>
-          <div class="support-content">
-            <div class="support-text">
-              <h3>T-shirts Cieutatois</h3>
-              <p>Arborez fièrement les couleurs de Cieutat et soutenez notre comité en commandant nos t-shirts exclusifs !</p>
-            </div>
-            <div class="support-action">
-              <img src="/assets/images/mascots/dindon-biere.png" alt="Mascotte" class="support-mascot">
-              <a mat-raised-button color="accent" [href]="helloAssoUrl" target="_blank">
-                <mat-icon>shopping_cart</mat-icon>
-                Boutique HelloAsso
-              </a>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
+  <!-- Affiche officielle -->
+  <section class="etiquette centre">
+    <img class="decor decor-hd" src="/assets/decor/etincelles.svg" alt="" aria-hidden="true">
+    <p class="surtitre">Bals gratuits</p>
+    <h2>L'affiche officielle</h2>
+    <img src="/assets/images/events/affiche-2026.jpg"
+         alt="Affiche officielle de la Fête de la Saint-Barthélémy 2026 à Cieutat"
+         class="affiche"
+         loading="lazy">
   </section>
 
 </div>

@@ -1,0 +1,61 @@
+// Partenaires — même gabarit d'étiquettes que le reste du site.
+
+:host {
+  display: block;
+}
+
+.pile {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.2rem, 3.5vw, 2rem);
+}
+
+.centre {
+  text-align: center;
+}
+
+.dates {
+  font-size: clamp(1.05rem, 3.4vw, 1.4rem);
+  margin: 0;
+}
+
+.liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 0.9rem;
+}
+
+.partenaire {
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: var(--orange);
+    }
+  }
+}
+
+.activite {
+  margin: 0 0 0.2rem;
+  font-size: 0.95rem;
+}
+
+.coordonnee {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.panneau {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  border-radius: var(--rayon);
+  margin-top: 0.4rem;
+}

@@ -2,14 +2,18 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
 }
 
+// Le motif marinière court derrière toute la partie éditoriale du site ;
+// le contenu est porté par les étiquettes crème posées dessus.
 main {
   flex: 1;
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
+  // Le fond défile avec le contenu : en `fixed`, les rayures glissaient sous
+  // les étiquettes et donnaient un effet de moiré très fatigant.
+  background: var(--mariniere);
+  padding: clamp(1.2rem, 4vw, 2.4rem) 0 clamp(2rem, 5vw, 3.5rem);
+  overflow-x: clip;
   max-width: 100%;
 }

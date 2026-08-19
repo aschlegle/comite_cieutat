@@ -1,26 +1,55 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+
+interface ImageGalerie {
+  src: string;
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-galerie',
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule
-  ],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './galerie.html',
   styleUrl: './galerie.scss'
 })
 export class GalerieComponent {
-  allImages = [
+  allImages: ImageGalerie[] = [
+    {
+      src: '/assets/images/events/affiche-2026.jpg',
+      title: 'Affiche 2026',
+      description: 'Programme officiel de la Saint-Barthélémy 2026'
+    },
+    {
+      src: '/assets/images/events/concert-chants-2026.jpg',
+      title: 'Concert de chants 2026',
+      description: 'Vendredi 28 août à 19h30 à l\'église de Cieutat'
+    },
+    {
+      src: '/assets/images/tshirts/tshirt-2026.png',
+      title: 'T-shirt 2026',
+      description: 'La marinière cieutatoise de l\'édition 2026'
+    },
+    {
+      src: '/assets/images/events/flyer-2026-recto.jpg',
+      title: 'Flyer 2026 — recto',
+      description: 'Mot du comité et sponsors de l\'édition'
+    },
+    {
+      src: '/assets/images/events/flyer-2026-verso.jpg',
+      title: 'Flyer 2026 — verso',
+      description: 'Le programme des quatre jours'
+    },
+    {
+      src: '/assets/images/sponsors/sponsors-2026.jpg',
+      title: 'Nos sponsors 2026',
+      description: 'Merci infiniment pour le soutien de tous nos sponsors'
+    },
     {
       src: '/assets/images/events/2025.png',
       title: 'Fêtes 2025',
-      description: 'Programme officiel des fêtes de la Saint-Barthélémy 2025'
+      description: 'Affiche des fêtes de la Saint-Barthélémy 2025'
     },
     {
       src: '/assets/images/events/2024.png',
@@ -48,34 +77,24 @@ export class GalerieComponent {
       description: 'Affiche du concert polyphonique 2018'
     }
   ];
-  
-  // Nombre d'images à afficher initialement
-  initialImagesCount = 3;
-  
-  // Images actuellement affichées
-  displayedImages: any[] = [];
-  
-  // Flag pour afficher ou masquer le bouton "Voir plus"
+
+  /** Nombre d'images affichées au chargement, puis à chaque « voir plus ». */
+  private readonly pas = 6;
+
+  displayedImages: ImageGalerie[] = [];
   hasMoreImages = true;
-  
+
   constructor() {
-    // Afficher les premières images au chargement
-    this.loadInitialImages();
-  }
-  
-  loadInitialImages() {
-    this.displayedImages = this.allImages.slice(0, this.initialImagesCount);
+    this.displayedImages = this.allImages.slice(0, this.pas);
     this.checkIfMoreImages();
   }
-  
+
   loadMoreImages() {
-    const currentLength = this.displayedImages.length;
-    const nextImages = this.allImages.slice(currentLength, currentLength + 3);
-    this.displayedImages = [...this.displayedImages, ...nextImages];
+    this.displayedImages = this.allImages.slice(0, this.displayedImages.length + this.pas);
     this.checkIfMoreImages();
   }
-  
-  checkIfMoreImages() {
+
+  private checkIfMoreImages() {
     this.hasMoreImages = this.displayedImages.length < this.allImages.length;
   }
 }
