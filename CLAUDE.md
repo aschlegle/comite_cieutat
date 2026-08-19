@@ -26,7 +26,7 @@ npx ng test --watch=false --browsers=ChromeHeadless   # single CI-style run
 
 **Standalone components throughout** — there are no NgModules. Bootstrap is `src/main.ts` → `appConfig` (`src/app/app.config.ts`) → `provideRouter(routes)`. Each component declares its own Material imports in the `imports:` array of its `@Component` decorator.
 
-**Routes** (`src/app/app.routes.ts`): `/`, `/programme`, `/chants`, `/galerie`, `/partenaires`, plus a `**` redirect to `/`. `/partenaires` is deliberately absent from the header nav — it is reached from the footer only, at the committee's request. `App` (`src/app/app.ts`) is a fixed `HeaderComponent` + `<router-outlet>` + `FooterComponent` shell.
+**Routes** (`src/app/app.routes.ts`): `/`, `/programme`, `/chants`, `/galerie`, `/partenaires`, plus a `**` redirect to `/`. `/partenaires` is deliberately absent from the header nav — it is reached from the footer only, at the committee's request. The page shows the flyer's sponsor panel as a single image and nothing else: a transcribed list of sponsors was built and then removed as redundant, so don't re-add one. `App` (`src/app/app.ts`) is a fixed `HeaderComponent` + `<router-outlet>` + `FooterComponent` shell.
 
 **All festival content is hardcoded**, not fetched:
 - `src/app/services/festival.ts` — `FestivalService` is the single source of truth for the edition: `edition`, `dates`, `boutiqueUrl`, `motDuComite`, the 4-day `programme`, the `repas` (menu + reservation contacts), the `tshirt` block and the songbook list, all returned via `of(...)`. Rolling the site over to a new year means editing this one file, not the templates.

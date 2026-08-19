@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Event, JourProgramme, Chant, Repas, Tshirt, Partenaire } from '../models/event.model';
+import { Event, JourProgramme, Chant, Repas, Tshirt } from '../models/event.model';
 
 /**
  * Source unique des contenus de l'édition en cours.
@@ -255,96 +255,6 @@ export class FestivalService {
     }
   ];
 
-
-  /**
-   * Sponsors de l'édition 2026, relevés sur l'encart « Merci infiniment pour le
-   * soutien de tous nos sponsors » du flyer. Seules les coordonnées lisibles
-   * sans ambiguïté sur l'encart sont reprises ici.
-   */
-  private partenaires: Partenaire[] = [
-    {
-      nom: 'Puertolas Vivien',
-      activites: [
-        'Charpente, couverture, zinguerie',
-        'Bardage, solivage, pose châssis de toit',
-        'Terrasse — neuf et rénovation'
-      ],
-      telephone: '06 84 46 01 23',
-      tel: '+33684460123',
-      email: 'vivien.puertolas@orange.fr'
-    },
-    {
-      nom: 'ETA Dandrau',
-      activites: [
-        'Travaux de fenaison, travaux des champs',
-        'Épandage fumier',
-        'Achat / vente fourrage & paille'
-      ]
-    },
-    {
-      nom: 'EARL Larredou',
-      activites: [
-        'Élevage porc noir de Bigorre, brebis castillonnaise',
-        'Vente les vendredis de 16h à 19h'
-      ],
-      adresse: '31 chemin Era Poutja, Cieutat',
-      telephone: '06 23 49 07 07',
-      tel: '+33623490707'
-    },
-    {
-      nom: 'EGDL — Darré Lionel',
-      activites: ['Électricité générale']
-    },
-    {
-      nom: 'TotalEnergies — Pecassou Paul',
-      activites: ['Station service', 'Lavage 24h/24', 'Pneumatique'],
-      adresse: '14 avenue de Tarbes, 65190 Tournay',
-      telephone: '05 62 35 71 97',
-      tel: '+33562357197'
-    },
-    {
-      nom: 'Darré Terrassement',
-      activites: ['Assainissement', 'Empierrage', 'Débroussaillage'],
-      adresse: '65200 Cieutat',
-      telephone: '06 71 81 88 41',
-      tel: '+33671818841',
-      email: 'sarl.darre@orange.fr'
-    },
-    {
-      nom: 'Thomas Barrere',
-      activites: ['Élagages', 'Abattages', 'Espaces verts'],
-      telephone: '06 01 01 56 50',
-      tel: '+33601015650'
-    },
-    {
-      nom: 'E.T.A Cédric Darré',
-      activites: ['Travaux de fauchage / débroussaillage', 'Travaux agricoles'],
-      telephone: '06 88 70 11 63',
-      tel: '+33688701163',
-      email: 'ced.darre@orange.fr'
-    },
-    {
-      nom: 'Les Menuisiers Bagnerais',
-      activites: [
-        'Aluminium, bois, PVC',
-        'Fenêtres, portes, volets, portes de garage',
-        'Portails, stores, pergolas'
-      ],
-      adresse: '23 avenue du Général Leclerc, 65200 Bagnères-de-Bigorre',
-      telephone: '05 62 95 33 39',
-      tel: '+33562953339'
-    },
-    {
-      // Coordonnées illisibles sur l'encart (masquées par un filigrane) :
-      // ne rien inscrire tant que le comité ne les a pas confirmées.
-      nom: 'Sébastien Espaces Verts et Élagages',
-      activites: ['Entretien', 'Tailles et créations', 'Élagages', 'Conseils']
-    }
-  ];
-
-  getPartenaires(): Observable<Partenaire[]> {
-    return of(this.partenaires);
-  }
 
   getProgramme(): Observable<JourProgramme[]> {
     return of(this.programme);

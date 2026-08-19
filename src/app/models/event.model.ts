@@ -59,15 +59,3 @@ export interface Tshirt {
   boutiqueUrl: string;
   retrait: string;
 }
-
-export interface Partenaire {
-  nom: string;
-  /** Activités telles qu'annoncées sur l'encart du flyer. */
-  activites: string[];
-  adresse?: string;
-  /** Format d'affichage repris de l'encart. */
-  telephone?: string;
-  /** Même numéro au format international, pour les liens tel:. */
-  tel?: string;
-  email?: string;
-}

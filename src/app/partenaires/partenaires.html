@@ -6,27 +6,8 @@
     <p class="dates">Merci infiniment pour le soutien de tous nos sponsors</p>
   </section>
 
-  <section class="etiquette">
-    <img class="decor decor-bd" src="/assets/decor/verres.png" alt="" aria-hidden="true">
-    <div class="liste">
-      <article *ngFor="let partenaire of partenaires" class="carte partenaire">
-        <h3>{{ partenaire.nom }}</h3>
-        <p *ngFor="let activite of partenaire.activites" class="activite">{{ activite }}</p>
-
-        <p *ngIf="partenaire.adresse" class="coordonnee">{{ partenaire.adresse }}</p>
-        <p *ngIf="partenaire.telephone" class="coordonnee">
-          <a [href]="'tel:' + partenaire.tel">{{ partenaire.telephone }}</a>
-        </p>
-        <p *ngIf="partenaire.email" class="coordonnee">
-          <a [href]="'mailto:' + partenaire.email">{{ partenaire.email }}</a>
-        </p>
-      </article>
-    </div>
-  </section>
-
   <section class="etiquette centre">
-    <p class="surtitre">Encart du flyer</p>
-    <h2>Le panneau des sponsors</h2>
+    <img class="decor decor-bd" src="/assets/decor/verres.png" alt="" aria-hidden="true">
     <img src="/assets/images/sponsors/sponsors-2026.jpg"
          alt="Panneau des sponsors de la Fête de Cieutat 2026"
          class="panneau" loading="lazy">

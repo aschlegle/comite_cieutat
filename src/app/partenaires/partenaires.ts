@@ -1,24 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FestivalService } from '../services/festival';
-import { Partenaire } from '../models/event.model';
 
 @Component({
   selector: 'app-partenaires',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './partenaires.html',
   styleUrl: './partenaires.scss'
 })
-export class PartenairesComponent implements OnInit {
-  partenaires: Partenaire[] = [];
-
+export class PartenairesComponent {
   readonly edition: number;
 
-  constructor(private festivalService: FestivalService) {
+  constructor(festivalService: FestivalService) {
     this.edition = festivalService.edition;
-  }
-
-  ngOnInit() {
-    this.festivalService.getPartenaires().subscribe(p => (this.partenaires = p));
   }
 }
