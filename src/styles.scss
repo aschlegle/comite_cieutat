@@ -190,6 +190,19 @@ p {
   width: clamp(86px, 15vw, 160px);
 }
 
+// La guirlande monte vers la droite. Posée dans un angle droit, elle se lit
+// mieux retournée : son extrémité basse vient alors s'ancrer dans le coin.
+.decor-hd[src$="fanions.png"],
+.decor-bd[src$="fanions.png"] {
+  transform: scaleX(-1);
+}
+
+// Les mains qui trinquent sont un dessin fin et aéré : à la taille commune,
+// le motif devient illisible.
+.decor[src$="verres.png"] {
+  width: clamp(84px, 13vw, 138px);
+}
+
 .decor-hg { top: 0.7rem; left: 0.7rem; }
 .decor-hd { top: 0.7rem; right: 0.7rem; }
 .decor-bg { bottom: 0.7rem; left: 0.7rem; }
@@ -208,6 +221,10 @@ p {
   .decor[src$="fanions.png"] {
     width: 64px;
   }
+
+  .decor[src$="verres.png"] {
+    width: 62px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -215,6 +232,12 @@ p {
     --dent: 9px;
     --pas: 20px;
   }
+}
+
+// Sections qui portent un décor dans chaque angle : sans marge
+// supplémentaire, le texte viendrait buter dedans.
+.etiquette--decore {
+  padding: clamp(2.6rem, 6vw, 4rem) clamp(1.2rem, 4vw, 2.6rem);
 }
 
 // Variante d'en-tête : même timbre, couleurs inversées. Sert à distinguer
