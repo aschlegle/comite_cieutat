@@ -8,8 +8,7 @@
 
   <!-- Une étiquette par journée, comme les slides du carrousel du comité. -->
   <section *ngFor="let jour of programme; let i = index" class="etiquette jour">
-    <img class="decor decor-hg" [src]="decors[i][0]" alt="" aria-hidden="true">
-    <img class="decor decor-bd" [src]="decors[i][1]" alt="" aria-hidden="true">
+    <img class="decor decor-hd" [src]="decors[i]" alt="" aria-hidden="true">
     <div class="centre">
       <p class="surtitre">Fête de Cieutat {{ edition }}</p>
       <h2>{{ jour.libelle }}</h2>
@@ -68,7 +67,6 @@
 
   <!-- Affiche officielle -->
   <section class="etiquette centre">
-    <img class="decor decor-hd" src="/assets/decor/etincelles.svg" alt="" aria-hidden="true">
     <p class="surtitre">Bals gratuits</p>
     <h2>L'affiche officielle</h2>
     <img src="/assets/images/events/affiche-2026.jpg"

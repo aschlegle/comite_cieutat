@@ -16,12 +16,15 @@ export class ProgrammeComponent implements OnInit {
   readonly dates: string;
   readonly edition: number;
 
-  /** Deux décors par journée, dans l'ordre du programme. */
+  /**
+   * Un seul décor par journée, dans l'ordre du programme, et tous différents :
+   * la page enchaîne assez de blocs pour que davantage devienne redondant.
+   */
   readonly decors = [
-    ['/assets/decor/verres.png', '/assets/decor/boule-disco.svg'],
-    ['/assets/decor/ballons.svg', '/assets/decor/boule-disco.svg'],
-    ['/assets/decor/etoile-mer.svg', '/assets/decor/etincelles.svg'],
-    ['/assets/decor/chapeaux.svg', '/assets/decor/coquillage.svg']
+    '/assets/decor/coquillage.svg',
+    '/assets/decor/boule-disco.svg',
+    '/assets/decor/etoile-mer.svg',
+    '/assets/decor/ballons.svg'
   ];
 
   constructor(private festivalService: FestivalService) {
