@@ -48,17 +48,17 @@ export class GalerieComponent {
     },
     {
       src: '/assets/images/events/2025.png',
-      title: 'Fêtes 2025',
+      title: 'Fête 2025',
       description: 'Affiche des fêtes de la Saint-Barthélémy 2025'
     },
     {
       src: '/assets/images/events/2024.png',
-      title: 'Fêtes 2024',
+      title: 'Fête 2024',
       description: 'Affiche des fêtes de la Saint-Barthélémy 2024'
     },
     {
       src: '/assets/images/events/2023.png',
-      title: 'Fêtes 2023',
+      title: 'Fête 2023',
       description: 'Affiche des fêtes de la Saint-Barthélémy 2023'
     },
     {

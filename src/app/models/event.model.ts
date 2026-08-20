@@ -49,6 +49,8 @@ export interface Repas {
   formules: MenuFormule[];
   dateLimite: string;
   contacts: Contact[];
+  /** Renvoi vers l'affiche pour les contacts non repris sur le site. */
+  autresContacts?: string;
 }
 
 export interface Tshirt {

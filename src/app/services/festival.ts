@@ -231,9 +231,9 @@ export class FestivalService {
     ],
     dateLimite: 'Réservations jusqu\'au 25/08',
     contacts: [
-      { nom: 'Damien Payssan', telephone: '07.86.81.07.70', tel: '+33786810770' },
-      { nom: 'Lauriane Bègue', telephone: '06.87.31.42.11', tel: '+33687314211' }
-    ]
+      { nom: 'Damien Payssan', telephone: '07.86.81.07.70', tel: '+33786810770' }
+    ],
+    autresContacts: 'Second contact indiqué sur le flyer'
   };
 
   private tshirt: Tshirt = {
